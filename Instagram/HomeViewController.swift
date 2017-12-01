@@ -122,7 +122,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // 画面を下に戻す
             let newSize: CGSize = CGSize(width: tableView.contentSize.width, height: tableView.contentSize.height - lastKeyboardFrame.size.height)
             tableView.contentSize = newSize
-            tableView.scrollToRow(at: editingPath, at: UITableViewScrollPosition.none, animated: true)
+            if editingPath != nil {
+                tableView.scrollToRow(at: editingPath, at: UITableViewScrollPosition.none, animated: true)
+            }
             lastKeyboardFrame = CGRect.zero;
         }
     }
